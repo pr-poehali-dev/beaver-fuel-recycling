@@ -375,9 +375,7 @@ const Index = () => {
             <div className="space-y-6">
               {[
                 { icon: "Phone", label: "Телефон", value: "+7 (999) 123-45-67", href: "tel:+79991234567" },
-                { icon: "Mail", label: "Email", value: "info@boberbriket.ru", href: "mailto:info@boberbriket.ru" },
                 { icon: "MapPin", label: "Адрес", value: "г. Москва, ул. Лесная, д. 42", href: "#" },
-                { icon: "Clock", label: "График работы", value: "Пн–Сб: 8:00 – 19:00", href: "#" },
               ].map(c => (
                 <a key={c.label} href={c.href} className="flex items-center gap-4 group">
                   <div className="w-12 h-12 bg-orange-500/30 border border-orange-400/30 rounded-xl flex items-center justify-center group-hover:bg-orange-500 transition-colors shrink-0">
