@@ -95,6 +95,15 @@ const faqs = [
 const Index = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = () => {
+    const text = `Заявка с сайта БобёрБрикет!\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
+    const url = `https://wa.me/79221533387?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  };
 
   return (
     <div className="min-h-screen bg-[#fdf6ee] font-sans">
@@ -386,24 +395,34 @@ const Index = () => {
                 <input
                   type="text"
                   placeholder="Ваше имя"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
                   className="w-full bg-white/10 border border-white/20 text-white placeholder-orange-200/50 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors"
                 />
                 <input
                   type="tel"
                   placeholder="Номер телефона"
+                  value={phone}
+                  onChange={e => setPhone(e.target.value)}
                   className="w-full bg-white/10 border border-white/20 text-white placeholder-orange-200/50 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors"
                 />
                 <textarea
                   placeholder="Ваш вопрос или объём заказа"
                   rows={3}
+                  value={message}
+                  onChange={e => setMessage(e.target.value)}
                   className="w-full bg-white/10 border border-white/20 text-white placeholder-orange-200/50 rounded-xl px-4 py-3 focus:outline-none focus:border-orange-400 transition-colors resize-none"
                 />
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-display font-bold tracking-wide text-lg transition-all hover:scale-[1.02] shadow-lg">
-                  Отправить заявку
+                <button
+                  onClick={handleSubmit}
+                  className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-display font-bold tracking-wide text-lg transition-all hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
+                >
+                  <Icon name="MessageCircle" size={20} />
+                  Отправить в WhatsApp
                 </button>
               </div>
               <p className="text-orange-200/50 text-xs mt-4 text-center">
-                Перезвоним в течение 30 минут в рабочее время
+                Откроется WhatsApp с готовым сообщением
               </p>
             </div>
           </div>
