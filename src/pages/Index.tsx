@@ -101,7 +101,7 @@ const Index = () => {
 
   const handleSubmit = () => {
     const text = `Заявка с сайта БобёрБрикет!\nИмя: ${name}\nТелефон: ${phone}\nСообщение: ${message}`;
-    const url = `https://wa.me/79221533387?text=${encodeURIComponent(text)}`;
+    const url = `https://t.me/+79221533387?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
 
@@ -417,12 +417,12 @@ const Index = () => {
                   onClick={handleSubmit}
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-display font-bold tracking-wide text-lg transition-all hover:scale-[1.02] shadow-lg flex items-center justify-center gap-2"
                 >
-                  <Icon name="MessageCircle" size={20} />
-                  Отправить в WhatsApp
+                  <Icon name="Send" size={20} />
+                  Отправить в Telegram
                 </button>
               </div>
               <p className="text-orange-200/50 text-xs mt-4 text-center">
-                Откроется WhatsApp с готовым сообщением
+                Откроется Telegram с готовым сообщением
               </p>
             </div>
           </div>
